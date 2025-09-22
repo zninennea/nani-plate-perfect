@@ -15,7 +15,7 @@ const Index = () => {
       title: 'Restaurant Owner',
       description: 'Manage your menu, track orders, and grow your business',
       icon: ChefHat,
-      path: '/owner',
+      path: '/auth',
       color: 'bg-gradient-primary',
       features: ['Menu Management', 'Order Tracking', 'Analytics Dashboard', 'Revenue Reports']
     },
@@ -24,7 +24,7 @@ const Index = () => {
       title: 'Customer',
       description: 'Browse delicious meals and track your deliveries',
       icon: User,
-      path: '/customer',
+      path: '/auth',
       color: 'bg-gradient-success',
       features: ['Browse Menu', 'Easy Ordering', 'Real-time Tracking', 'Review System']
     },
@@ -33,7 +33,7 @@ const Index = () => {
       title: 'Delivery Driver',
       description: 'Accept deliveries and earn money on your schedule',
       icon: Truck,
-      path: '/driver',
+      path: '/auth',
       color: 'bg-gradient-warm',
       features: ['Flexible Hours', 'GPS Navigation', 'Instant Notifications', 'Earnings Tracker']
     }
@@ -65,6 +65,14 @@ const Index = () => {
                 Your complete food ordering and delivery management platform. 
                 Connect restaurants, customers, and drivers in one seamless experience.
               </p>
+              <Button 
+                size="lg" 
+                variant="secondary" 
+                onClick={() => navigate('/auth')}
+                className="mb-4"
+              >
+                Get Started
+              </Button>
               <div className="flex items-center justify-center gap-4">
                 <Badge variant="secondary" className="px-4 py-2 text-sm">
                   <Shield className="w-4 h-4 mr-2" />
@@ -98,10 +106,9 @@ const Index = () => {
         {/* Role Selection */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Choose Your Dashboard</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">Choose Your Role</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Select your role to access the features designed specifically for you. 
-              Each dashboard is tailored to provide the best experience for your needs.
+              Learn about the different roles available in NaNi. Sign in to access your personalized dashboard.
             </p>
           </div>
 
@@ -112,7 +119,7 @@ const Index = () => {
                 <Card 
                   key={role.id} 
                   className="group hover:shadow-strong transition-all duration-300 cursor-pointer border-2 hover:border-primary/20"
-                  onClick={() => navigate(role.path)}
+                onClick={() => navigate(role.path)}
                 >
                   <CardHeader className="text-center pb-4">
                     <div className={`w-16 h-16 ${role.color} rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-medium`}>
@@ -138,10 +145,10 @@ const Index = () => {
                       className="w-full group-hover:bg-primary/90 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigate(role.path);
+                        navigate('/auth');
                       }}
                     >
-                      Access Dashboard
+                      Sign In to Access
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
