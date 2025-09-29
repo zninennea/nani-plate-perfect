@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { ChefHat, User, Truck, Star, ArrowRight, Utensils, Clock, Shield } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import burgerHero from '@/assets/burger-hero.jpg';
+import naniLogo from '@/assets/nani-logo.png';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -60,6 +61,13 @@ const Index = () => {
           </div>
           <div className="relative px-8 py-16 text-center text-white">
             <div className="mx-auto max-w-3xl">
+              <div className="flex justify-center mb-6">
+                <img 
+                  src={naniLogo} 
+                  alt="NaNi Logo" 
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
               <h1 className="text-5xl font-bold mb-6">Welcome to NaNi</h1>
               <p className="text-xl mb-8 text-white/90">
                 Your complete food ordering and delivery management platform. 
