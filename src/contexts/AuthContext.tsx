@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const fetchProfile = async (userId: string) => {
     try {
       const { data, error } = await supabase
-        .from('profiles' as any)
+        .from('profiles')
         .select('*')
         .eq('user_id', userId)
         .single();
@@ -58,7 +58,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         return null;
       }
 
-      return data;
+      return data as Profile;
     } catch (error) {
       console.error('Error fetching profile:', error);
       return null;
@@ -136,8 +136,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (!user) return { error: new Error('No user logged in') };
 
     const { error } = await supabase
-      .from('profiles' as any)
-      .update(updates as any)
+      .from('profiles')
+      .update(updates)
       .eq('user_id', user.id);
 
     if (!error) {

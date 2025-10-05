@@ -74,7 +74,7 @@ const MyOrders = () => {
 
     try {
       const { data, error } = await supabase
-        .from('orders')
+        .from('orders' as any)
         .select(`
           *,
           order_items (*),

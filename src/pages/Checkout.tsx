@@ -127,11 +127,12 @@ const Checkout = () => {
           },
           delivery_address: deliveryAddress,
           special_instructions: specialInstructions || null,
-        })
+        } as any)
         .select()
         .single();
 
       if (orderError) throw orderError;
+      if (!order) throw new Error('Failed to create order');
 
       // Create order items
       const orderItems = cartItems.map(item => ({
